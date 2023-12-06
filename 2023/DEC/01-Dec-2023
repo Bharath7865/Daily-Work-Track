@@ -1,2 +1,16 @@
-Worked on tickets & meeting with DSA.
-Studied on AWS-SAP Dumps.
+Revision on AWS-ELB.
+
+Amazon Elastic Load Balancing (ELB) is a service provided by Amazon Web Services (AWS) that distributes incoming application or network traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses, within one or more availability zones. ELB aims to enhance the availability and fault tolerance of your applications.
+
+ELB Features:
+ 1.Auto Scaling Integration
+ 2.Health Checks
+ 3.Security
+ 4.Logging and Monitoring
+ 5.Cross-Zone Load Balancing
+
+Types:
+     1.Application Load Balancer (ALB):- Operates at the application layer (Layer 7) and is ideal for routing HTTP/HTTPS 
+       traffic.
+     2.Network Load Balancer (NLB):- Operates at the transport layer (Layer 4) and is suitable for handling TCP, UDP, and TLS 
+       traffic.
