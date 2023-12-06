@@ -1,1 +1,7 @@
+Revision on Elastic BeanStalk.
+
+Elastic Beanstalk is a service for deploying and scaling web apps & services.
+Upload your code and EB automatically handles the deployment like auto-scaling, capacity provisioning, load balancing & health monitoring.
+EB supports multiple programing languages like PHP, .Net, Python, Ruby etc;
+There is no charge for EB, but we need to pay for AWS resources which are launched from EB.
 
