@@ -1,6 +1,8 @@
 Revision on AWS-ELB.
 
-Amazon Elastic Load Balancing (ELB) is a service provided by Amazon Web Services (AWS) that distributes incoming application or network traffic across multiple targets, such as Amazon EC2 instances, containers, and IP addresses, within one or more availability zones. ELB aims to enhance the availability and fault tolerance of your applications.
+Amazon Elastic Load Balancing (ELB) is a service provided by Amazon Web Services (AWS) that distributes incoming application or network traffic across multiple targets.
+Such as EC2 instances, containers, and IP addresses, within one or more availability zones. 
+ELB aims to enhance the availability and fault tolerance of your applications.
 
 ELB Features:
  1.Auto Scaling Integration
