@@ -1,0 +1,26 @@
+About AWS cloud watch
+=======================================================================================================================================================================================================================================================
+
+Amazon CloudWatch is a monitoring and observability service provided by Amazon Web Services (AWS). It allows you to collect and track metrics, collect and monitor log files, and set alarms. Here are some key aspects of AWS CloudWatch:
+
+1.Metrics: CloudWatch collects and stores data in the form of metrics. Metrics represent a time-ordered set of data points. AWS services automatically provide metrics, but you can also create custom metrics.
+
+2.Dashboards: CloudWatch Dashboards allow you to create custom views of the metrics and alarms for your AWS resources.
+
+3.Alarms: You can set alarms on metrics to receive notifications or take automated actions when the values breach a certain threshold. Alarms can trigger actions such as sending a notification, stopping an EC2 instance, or auto-scaling.
+
+4.Logs: CloudWatch Logs lets you collect and store log data from your applications, operating systems, and AWS resources. You can use CloudWatch Logs Insights to search and analyze log data.
+
+5.Events: CloudWatch Events enables you to respond to changes in your AWS resources. You can use events to automatically invoke Lambda functions, start/stop instances, or perform other actions.
+
+6.Agent: The CloudWatch Agent is a lightweight software agent that you can install on your EC2 instances to collect additional system-level metrics, custom logs, and enhance monitoring capabilities.
+
+7.Synthetics: CloudWatch Synthetics allows you to monitor your application endpoints by creating canaries. Canaries are configurable scripts that run on a schedule to simulate user behavior.
+
+8.Containers: CloudWatch provides specific functionalities for monitoring containers and containerized applications. This includes the monitoring of Amazon ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service).
+
+9.Insights: CloudWatch Logs Insights provides an interactive interface to search and analyze your log data.
+
+10.Cross-Account and Cross-Region Dashboard Sharing: You can share CloudWatch Dashboards across AWS accounts and regions.
+
+=======================================================================================================================================================================================================================================================
