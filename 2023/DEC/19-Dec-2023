@@ -1,0 +1,30 @@
+AWS Event Bridge
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Amazon EventBridge is a serverless event bus service provided by Amazon Web Services (AWS). 
+It simplifies the building of event-driven applications by allowing you to connect different AWS services, integrated software as a service (SaaS) applications, and your own custom applications using events. 
+These events can be easily routed to one or more targets, such as AWS Lambda functions, SNS topics, SQS queues etc;
+
+Key features of AWS EventBridge include:
+
+1.Event Bus: An event bus is a communication channel for different components to communicate with each other. 
+AWS provides a default event bus for your account, but you can also create custom event buses.
+
+2.Events: Events are messages that indicate a change in your environment. They are produced by event sources. 
+For example, changes to an AWS resource can trigger events, and EventBridge can route these events to targets for processing.
+
+3.Event Sources: These are entities or services that produce events. 
+Common examples include AWS services like S3, DynamoDB, and CloudWatch, as well as custom applications.
+
+4.Rules: Rules define the criteria for matching incoming events and specify which targets should receive the events. 
+You can create rules to filter events based on event attributes.
+
+5.Targets: Targets are the endpoint components that process events.
+AWS EventBridge supports various target types, including AWS Lambda functions, SNS topics, SQS queues, Kinesis Data Streams, and more.
+
+
+Here's a simple workflow of how AWS EventBridge operates:
+. An event source generates an event when a change occurs (e.g., an S3 bucket gets a new file).
+. The event is sent to the default or a custom event bus.
+. Rules are used to match and filter events.
+. Matched events are sent to the specified targets for further processing.
