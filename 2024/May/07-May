@@ -1,0 +1,59 @@
+Studied on AWS cloudfromation (as part of DevOps)
+practically performed an samples in POC account by using cloudformation stacks
+
+1. sample template was worked successfully
+2. Long yaml template was not worked, needs to do modifications on it and have to test again.
+=======================================================================================================
+---
+Resources:
+  myLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: !Sub ${AWS::StackName}-launch-template
+      LaunchTemplateData:
+        ImageId: ami-0dfdc165e7af15242
+        InstanceType: t3.micro
+        IamInstanceProfile:
+          Name: !Ref myInstanceProfile
+        SecurityGroupIds:
+        
+        - sg-00e0c1f0ddaaef0af
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash
+            cd /tmp
+            yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+            systemctl enable amazon-ssm-agent
+            systemctl start amazon-ssm-agent
+        TagSpecifications:
+        - ResourceType: instance
+          Tags:
+          - Key: environment
+            Value: development
+        - ResourceType: volume
+          Tags:
+          - Key: environment
+            Value: development
+  myInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: InstanceRole
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: 'Allow'
+          Principal:
+            Service:
+            - 'ec2.amazonaws.com'
+          Action:
+          - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/myCustomerManagedPolicy'
+  myInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: '/'
+      Roles:
+      - !Ref myInstanceRole
+
+===============================================================================================
