@@ -1,0 +1,75 @@
+AWS Cloud Formation Resources are:
+  1.EC2 Instance
+  2.AutoScalingGroup :- DevOps practices often involve dynamic scaling to handle changes in workload demand.
+  3.LoadBalancer:- This resource allows you to provision an Application Load Balancer or Network Load Balancer.
+  4.Lambda Function:- AWS Lambda is a serverless computing service that allows you to run code without provisioning or managing servers.
+  5.CodePipeline:-  Continuous Integration/Continuous Deployment (CI/CD) is a fundamental DevOps practice.
+  6.IAM Role:- Identity and Access Management (IAM) roles are used to define permissions and access controls for AWS resources.
+  7.CloudWatch Alarm:- Monitoring and alerting are critical aspects of DevOps. This resource enables you to define CloudWatch alarms, which can trigger actions (e.g., sending notifications or auto-scaling) based on predefined metrics or thresholds.
+  8.S3 Bucket:- This resource allows you to create S3 buckets, which are often used for storing artifacts, logs, or static website content in DevOps workflows.
+  9.RDS DBInstance:- This resource enables you to provision RDS database instances, which can be integrated into your applications or services.
+  10.CloudFormation Stack:- This resource allows you to create nested stacks, which can simplify the management of complex infrastructures and promote code reusability.
+
+
+AWS Cloud Formation Parameters are:
+  1.Customization:- Parameters allow you to customize various aspects of your CloudFormation template, such as instance types, storage sizes, network configurations, and environment-specific settings.
+  2.Dynamic Configuration:- With parameters, you can dynamically configure your resources based on input values provided at stack creation time.
+  3.Environment Management:- Parameters allow you to define environment-specific settings in your templates, making it easier to maintain consistency across different environments.
+  4.Promotion Across Environments:- By using parameters to customize your templates, you can promote stacks from one environment to another (e.g., from development to production) without needing to modify the underlying template.
+  5.Secure Input:- Parameters support various parameter types, including secure string parameters (SecureString), which are encrypted using AWS Key Management Service (KMS).
+  6.Validation and Constraints:- CloudFormation parameters support validation and constraints, allowing you to enforce specific rules or restrictions on input values.
+  7.Default Values:- Parameters can have default values, which are used if no input value is provided during stack creation.
+  8.Parameter Dependencies:- Parameters can have dependencies on other parameters, allowing you to create dynamic relationships between input values.
+
+
+
+AWS Cloud Formation Mappings are:
+  1.Environment-specific Configuration: Mappings can be used to define environment-specific configurations, such as AMI (Amazon Machine Image) IDs for different regions or instance types for various environments (e.g., development, testing, production).
+  2.Region-specific Resources: Mappings enable you to define region-specific resources or configurations in your CloudFormation template.
+  3.Service-specific Configurations: Mappings can be used to define configurations specific to AWS services. For instance, you can define mappings for AWS Lambda function runtimes, AWS RDS database engine versions, or AWS ECS container instance types.
+  4.Conditional Logic: Mappings can also be used to implement conditional logic within your template. By defining a mapping with multiple keys and associated values, you can choose the appropriate value based on conditions specified in your template.
+  5.Centralized Configuration Management: Mappings enable you to centralize configuration data within your CloudFormation template, making it easier to manage and maintain.
+  6.Version-specific Resources: Mappings can be used to define version-specific resources or configurations in your template.
+  7.Reusable Templates: Mappings can enhance the reusability of CloudFormation templates by separating configuration data from the template logic.
+
+
+
+
+AWS Cloud Formation Outputs & Exports
+1.Outputs:- Outputs in CloudFormation enable you to expose information about your stack or its resources once the stack has been created or updated. 
+Outputs can include values such as endpoint URLs, resource ARNs (Amazon Resource Names), or configuration parameters. 
+These outputs can be retrieved programmatically or viewed in the AWS Management Console.
+
+2.Exports:- Exports in CloudFormation allow you to share output values from one stack with other stacks within the same AWS account and region. 
+By exporting output values, you make them available for importing into other CloudFormation stacks, enabling cross-stack referencing.
+
+
+
+
+
+AWS Cloud Formation Intrinsic Functions
+AWS CloudFormation intrinsic functions are built-in functions that enable you to perform transformations and actions on template values at runtime. 
+These functions provide powerful capabilities for dynamically configuring and managing resources in CloudFormation templates. 
+In DevOps workflows, intrinsic functions are invaluable for creating flexible, reusable, and dynamic templates that adapt to different deployment scenarios and requirements.
+
+
+
+AWS Cloud Formation Rollbacks
+In AWS CloudFormation, rollbacks occur when a stack creation or update encounters an error, and CloudFormation automatically reverts the changes to the previous stable state.
+Rollbacks are crucial in DevOps workflows as they help ensure the integrity and reliability of infrastructure deployments, minimize downtime, and mitigate the risk of errors or failures.
+
+
+
+
+AWS Cloud Formation Service Role
+In AWS CloudFormation, a service role is an IAM (Identity and Access Management) role used by CloudFormation to perform actions on behalf of your AWS account during stack operations. 
+This role grants permissions to CloudFormation to create, update, and delete AWS resources as defined in your CloudFormation templates. 
+
+
+
+AWS Cloud Formation Capabilites
+In AWS CloudFormation, capabilities refer to the actions that CloudFormation can perform on your behalf when you create or update a stack that includes certain types of resources. 
+
+
+
+
