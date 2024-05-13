@@ -1,0 +1,62 @@
+AWS cloud Formation Deletion Policy
+==========================================================================================================================
+AWS CloudFormation deletion policies define what happens to a resource when it is deleted from a stack. 
+There are several deletion policies available:
+
+1.DeleteOnDeletion: Resources are deleted when the stack is deleted. This is the default behavior for many resources.
+
+2.Retain: Resources are retained even if the stack is deleted. 
+This is useful when you want to keep certain resources around even after the stack is removed. 
+However, you'll need to manually delete these resources when they're no longer needed.
+
+3.Snapshot: Some resources support creating a snapshot when they are deleted. 
+This snapshot can be used to restore the resource later.
+
+4.ApplyImmediately: For certain resources like AWS Elastic Beanstalk environments, this policy ensures that changes are applied immediately when a stack update is initiated, rather than waiting for confirmation.
+
+
+
+
+ AWS CloudFormation Stack Policy
+==========================================================================================================================
+AWS CloudFormation Stack Policies provide a way to control what actions can be performed on resources within a stack.
+They are JSON-based documents that define the update actions allowed or denied for each resource in a CloudFormation stack.
+Stack policies help ensure that critical resources aren't accidentally deleted or modified and provide an additional layer of security and governance.
+
+1.JSON Format: Stack policies are written in JSON format and are attached to a CloudFormation stack during its creation. 
+They can't be modified once the stack is created; however, you can replace the entire stack policy document with a new one.
+
+2.Fine-Grained Control: Stack policies allow you to specify which actions are allowed or denied for each resource in the stack. 
+You can control actions such as updating, deleting, or replacing resources.
+
+3.Default Behavior: If a stack policy doesn't explicitly allow or deny an action for a resource, the default behavior is to allow the action.
+ 
+4.Prevent Accidental Updates: Stack policies are commonly used to prevent accidental updates to critical resources, such as production databases or networking infrastructure. 
+For example, you can deny all update actions on a resource to prevent any modifications.
+
+
+
+
+AWS CloudFormation Termination Protection
+===========================================================================================================================
+AWS CloudFormation termination protection is a feature that prevents accidental deletion of CloudFormation stacks.
+When termination protection is enabled for a stack, attempting to delete the stack through the AWS Management Console, CLI, or API will fail, ensuring that critical resources managed by the stack are not accidentally removed.
+
+1.Enabled at Stack Level: Termination protection is enabled at the stack level. When you create or update a CloudFormation stack, you can specify whether termination protection should be enabled.
+
+2.Prevents Deletion: Once termination protection is enabled for a stack, any attempt to delete the stack will fail. 
+This includes deletion attempts made through the AWS Management Console, CLI, or API.
+
+3.Additional Layer of Protection: Termination protection provides an additional layer of protection against accidental stack deletions. 
+It can help prevent critical resources from being inadvertently removed, especially in production environments.
+
+4.Can Be Disabled: Termination protection can be disabled for a stack if necessary. 
+However, it's important to exercise caution when disabling termination protection, as it increases the risk of accidental deletion.
+
+5.Granular Control: You can enable or disable termination protection for individual stacks as needed. 
+This allows you to tailor the protection to the specific requirements of each stack.
+
+6.Managed by Stack Owner: It's the responsibility of the stack owner to manage termination protection for their CloudFormation stacks. 
+Enabling termination protection should be part of the overall stack management and governance strategy.
+
+7.Considerations: While termination protection helps prevent accidental deletions, it's essential to have appropriate access controls and safeguards in place to ensure that authorized users can still manage the stack when necessary.
