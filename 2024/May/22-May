@@ -1,0 +1,166 @@
+AWS Cloud Formation Custom Resources
+========================================================================================
+AWS CloudFormation custom resources enable you to extend AWS CloudFormation templates by allowing you to write custom logic to provision and manage resources that are not natively supported by CloudFormation.
+
+1.Lambda Functions:
+A service token is an identifier that CloudFormation uses to communicate with the Lambda function or any other endpoint that handles the custom resource logic. 
+This token is usually the ARN (Amazon Resource Name) of the Lambda function.
+
+2.Service Tokens:
+A service token is an identifier that CloudFormation uses to communicate with the Lambda function or any other endpoint that handles the custom resource logic. 
+This token is usually the ARN (Amazon Resource Name) of the Lambda function.
+
+3.Custom Resource Request Types:
+CloudFormation sends requests of three types to the Lambda function:
+
+Create: When the custom resource is created.
+Update: When the custom resource is updated.
+Delete: When the custom resource is deleted.
+
+4.Response Handling:
+The Lambda function must send a response back to CloudFormation indicating whether the operation (create, update, delete) was successful or not. 
+This is typically done by sending a JSON response to a pre-signed S3 URL provided by CloudFormation.
+
+
+
+
+AWS Cloud Formation Dynamic References
+==============================================================================================
+AWS CloudFormation dynamic references enable you to securely and dynamically retrieve the values of sensitive data or frequently updated parameters stored in other AWS services at runtime.
+This allows you to keep your CloudFormation templates clean and secure by avoiding hard-coding sensitive information, such as passwords or API keys, directly into your templates.
+
+1.Dynamic References Syntax:
+Dynamic references use the syntax {{resolve:type:key}}, where type specifies the service (e.g., ssm, ssm-secure, secretsmanager), and key specifies the parameter name or secret ID.
+
+2.Supported Services:
+AWS Systems Manager Parameter Store: For both standard and secure string parameters.
+AWS Secrets Manager: For secrets stored in Secrets Manager.
+
+
+
+
+
+AWS Cloud Formation User Data
+==================================================================================================
+AWS CloudFormation User Data is a feature that allows you to specify scripts and other metadata to be executed when an Amazon EC2 instance is launched.
+This can be particularly useful for automating the configuration of instances, installing software, or performing other initialization tasks.
+
+
+Key Concepts of User Data
+
+1.User Data:
+User data is essentially a script or a set of commands that are executed on the instance during its first boot cycle. 
+This script can be written in shell script (Linux) or PowerShell (Windows).
+
+2.Bootstrapping:
+Bootstrapping is the process of executing scripts that install and configure software on an instance at launch time. 
+User data scripts are often used for bootstrapping.
+
+
+
+
+
+
+
+AWS Cloud Formation cfn-init
+=====================================================================================================
+AWS CloudFormation cfn-init is a helper script that simplifies the configuration and initialization of Amazon EC2 instances within CloudFormation stacks.
+By using cfn-init, you can automate complex configuration tasks, such as installing software, configuring services, and managing files.
+It helps to ensure that your instances are consistently and correctly set up.
+
+
+
+Key Concepts of cfn-init
+
+1.Metadata:
+The cfn-init script utilizes metadata defined in the CloudFormation template to configure the instance. 
+This metadata is typically defined under the AWS::CloudFormation::Init key.
+
+
+2.Configuration Sections:
+Metadata for cfn-init is organized into sections, such as packages, files, commands, and services. 
+Each section defines a specific aspect of the instance configuration.
+
+
+3.Helper Scripts:
+cfn-init is one of several CloudFormation helper scripts, which also include cfn-signal, cfn-get-metadata, and cfn-hup.
+
+
+
+
+
+
+
+
+AWS Cloud Formation cfn-signal & wait condition
+=========================================================================================================
+AWS CloudFormation cfn-signal and wait conditions are mechanisms used to synchronize the creation of CloudFormation stack resources.
+They ensure that dependent resources wait until other resources are properly configured or certain conditions are met before proceeding.
+This is particularly useful in scenarios where you need to verify that an instance or application is fully set up before moving on to subsequent resources.
+
+1.cfn-signal:
+A helper script used to signal success or failure status from instances or applications to CloudFormation.
+Commonly used in conjunction with wait conditions to indicate when a resource is ready.
+
+
+
+2.Wait Condition:
+A CloudFormation resource that waits for a specified number of success signals before proceeding with stack creation.
+Can be used to coordinate the timing of resource creation based on custom logic or external events.
+
+
+
+
+
+AWS Cloud Formation cfn-signal failures
+==========================================================================================================
+When using AWS CloudFormation cfn-signal to manage the initialization and readiness of resources, handling failures effectively is crucial.
+Failure to signal correctly can lead to stack creation failures or incomplete resource configurations. 
+Understanding how to handle cfn-signal failures helps in building resilient and reliable CloudFormation stacks.
+
+
+
+1.cfn-signal:
+A command used to send success or failure signals to CloudFormation wait conditions.
+The exit status of the cfn-signal command determines whether a success or failure signal is sent.
+
+2.Wait Conditions:
+Used to pause the creation of stack resources until specific conditions are met (e.g., a specified number of success signals).
+
+
+
+
+Handling cfn-signal Failures
+
+1.Exit Status:
+cfn-signal uses the exit status of the commands/scripts it runs to determine the signal to send.
+An exit status of 0 indicates success, while any non-zero exit status indicates failure.
+
+2.Error Reporting:
+Properly report errors in the user data script or the configuration process to help diagnose issues.
+Log errors to CloudWatch Logs or another logging service for easier debugging.
+
+
+
+
+
+
+
+AWS Cloud Formation Nested Stacks
+=======================================================================================================
+AWS CloudFormation nested stacks allow you to break down a complex CloudFormation template into smaller, reusable components.
+This modular approach simplifies template management, improves readability, and promotes reusability.
+Nested stacks are essentially CloudFormation stacks created as part of another stack, known as the parent stack.
+
+
+
+Key Concepts of Nested Stacks
+
+1.Parent Stack:
+The primary stack that includes one or more nested stacks as resources.
+
+2.Nested Stack:
+A stack created within another stack. Nested stacks are defined using the AWS::CloudFormation::Stack resource type in the parent stack template.
+
+3.TemplateURL:
+The property used to specify the location of the template file for the nested stack. This file can be stored in an S3 bucket.
